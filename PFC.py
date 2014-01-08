@@ -6,25 +6,69 @@
 # |                                                  |
 # +--------------------------------------------------+
 #
-# version 1.0
+# version 1.1
 
 #!/usr/bin/python
 
 import os
 
-# Make Project File
-os.chdir("../")
-if os.path.isdir("./Projects"):
-    os.chdir("Projects")
-else:
-    os.mkdir("Projects")
-    os.chdir("Projects")
+# Print program title
+print
+print "Project Folder Creator 2014"
+print '---------------------------'
+print
 
+
+
+
+# Move to Home Folder
+home = os.path.expanduser("~")
+os.chdir(home)
+
+# Check for Projects Folder
+check = 0
+homeList =[]
+for homefolders in os.listdir(home):
+    homeList.append(homefolders)
+    check = homeList.count("Projects")
+    if check == 1:
+        os.chdir("Projects")
+        break
+    else:
+        check == 0
+
+# If no Project Folder in Home one is created
+# or we change directories to user's Projects Folder
+if check == 0:
+    print
+    print "No Project Folder Detected"
+    print
+    yes = set(['yes','y'])
+    no = set(['no','n'])   
+    while True:
+        newproject = raw_input("Do you want to make a Main Projects folder, Yes or No?").lower()
+        if newproject in yes:
+            os.mkdir("Projects")
+            os.chdir("Projects")
+            break
+        elif newproject in no:
+            print
+            print "We are in %s" % os.getcwd()
+            dif = raw_input("Where is your Project Folder? (Full Path Please)")
+            print "Moving to " + dif
+            os.chdir(dif)
+            break
+        else:
+            print "I'm sorry, I didn't understand. Please type 'Yes' or 'No'"
+            print
+            
 # Ask for Client name
 client = raw_input("What Client?")
+print
 
 # Ask for Project name
 project = raw_input("What Project?")
+print
 
 if project == "only one":
     os.mkdir(client)
@@ -34,7 +78,6 @@ else:
     os.chdir(client)
     os.mkdir(project)
     os.chdir(project)
-
 
 # Add Main Folders
 os.mkdir("00_Finals")
@@ -77,3 +120,18 @@ os.chdir("04_Project_Files")
 os.mkdir("Backup Projects")
 os.chdir("../")
 
+# Going back to Projects
+os.chdir('../')
+if project != "only one":
+    os.chdir('../')
+
+# Ending Stats    
+print '---------------------------'
+print
+print "For Client: %s" % client
+if project != "only one":
+    print "For Project: %s" % project
+print
+print "Folders Created in %s" % os.getcwd()
+print
+print '---------------------------'
