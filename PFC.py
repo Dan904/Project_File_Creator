@@ -6,7 +6,7 @@
 # |                                                  |
 # +--------------------------------------------------+
 #
-# version 1.2
+# version 1.2.2
 
 #!/usr/bin/python
 
@@ -135,14 +135,13 @@ def createFolders(project):
 
 # Add Folders for Elements
     os.chdir("03_Elements")
-    os.mkdir("01_Brushes")
-    os.mkdir("02_Fonts")
-    os.mkdir("03_Logos")
-    os.mkdir("04_Overlays")
+    os.mkdir("01_Logos")
+    os.mkdir("02_Renders")
+    os.mkdir("03_Overlays")
+    os.mkdir("04_Stills")
     os.mkdir("05_Refrence")
-    os.mkdir("06_Textures")
-    os.mkdir("07_Titles")
-    os.mkdir("08_Audio")
+    os.mkdir("06_Audio")
+    os.mkdir("07_App_Materials")
     os.chdir("../")
 
 # Add Folders for Project Files
