@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # +--------------------------------------------------+
 # |                                                  |
 # |             Project Folder Creator               |
@@ -8,7 +9,6 @@
 #
 # version 1.2.2
 
-#!/usr/bin/python
 
 import os, logging, time, sys
 
